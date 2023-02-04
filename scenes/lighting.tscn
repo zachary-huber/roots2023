@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="ProceduralSky" id=3]
+sky_curve = 0.335892
+ground_bottom_color = Color( 0, 0, 0, 1 )
+ground_horizon_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Environment" id=4]
+background_mode = 1
+background_sky = SubResource( 3 )
+background_color = Color( 0.619608, 0.796078, 1, 1 )
+dof_blur_far_enabled = true
+dof_blur_far_distance = 35.0
+dof_blur_far_transition = 10.0
+dof_blur_far_quality = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource( 4 )
+
+[node name="Sun" type="DirectionalLight" parent="."]
+transform = Transform( 0.808863, 2.57022e-08, -0.587997, 0.517328, -0.475317, 0.71165, -0.279485, -0.879815, -0.384467, 0, 14.2087, 0 )
+shadow_enabled = true
+
+[node name="Sun2" type="DirectionalLight" parent="."]
+transform = Transform( 0.511171, 0.716427, 0.474802, -0.686961, 0.0085737, 0.726644, 0.516516, -0.69761, 0.49654, 0, 11.4241, 0 )
+light_energy = 0.5

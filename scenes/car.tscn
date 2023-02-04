@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://materials/tires.tres" type="Material" id=1]
+[ext_resource path="res://scripts/car.gd" type="Script" id=2]
+[ext_resource path="res://textures/KenneyPrototyping/Light/texture_07.png" type="Texture" id=3]
+[ext_resource path="res://scenes/plunger.tscn" type="PackedScene" id=4]
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="CubeMesh" id=6]
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.45098, 0.537255, 1, 1 )
+albedo_texture = ExtResource( 3 )
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id=8]
+material = ExtResource( 1 )
+radial_segments = 12
+
+[node name="Player" type="VehicleBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94543, 0 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( -8.74228e-08, 0, 1, 0, 0.3, 0, -2, 0, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="L1" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, 2 )
+use_as_steering = true
+wheel_radius = 0.6
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance" type="MeshInstance" parent="L1"]
+transform = Transform( -2.62268e-08, -0.2, 0, 0.6, -8.74228e-09, 0, 0, 0, 0.6, 0, 0, 0 )
+mesh = SubResource( 8 )
+
+[node name="L2" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0, 2 )
+use_as_steering = true
+wheel_radius = 0.6
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance" type="MeshInstance" parent="L2"]
+transform = Transform( -2.62268e-08, -0.2, 0, 0.6, -8.74228e-09, 0, 0, 0, 0.6, 0, 0, 0 )
+mesh = SubResource( 8 )
+
+[node name="L3" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, -2 )
+use_as_traction = true
+wheel_radius = 0.6
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance" type="MeshInstance" parent="L3"]
+transform = Transform( -2.62268e-08, -0.2, 0, 0.6, -8.74228e-09, 0, 0, 0, 0.6, 0, 0, 0 )
+mesh = SubResource( 8 )
+
+[node name="L4" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0, -2 )
+use_as_traction = true
+wheel_radius = 0.6
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance" type="MeshInstance" parent="L4"]
+transform = Transform( -2.62268e-08, -0.2, 0, 0.6, -8.74228e-09, 0, 0, 0, 0.6, 0, 0, 0 )
+mesh = SubResource( 8 )
+
+[node name="plunger" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.4, 0, 0, 0, -0.169047, 0.362523, 0, -0.362523, -0.169047, 0, 1.86021, 1.16604 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, -4.37114e-08, 0.866025, 0.5, 7.57103e-08, 0.5, -0.866025, 0, 6.55646, -5.63278 )
+current = true
+
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -23.2462, -1.01612e-06, 0, 0.32177, 2.21052 )
+
+[node name="plungerAnchorPoint" type="Spatial" parent="."]

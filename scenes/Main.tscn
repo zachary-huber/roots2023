@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/lighting.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/car.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/vegetable.tscn" type="PackedScene" id=4]
+
+[node name="Main" type="Node"]
+
+[node name="Main3D" type="Spatial" parent="."]
+
+[node name="Level" parent="Main3D" instance=ExtResource( 3 )]
+
+[node name="Player" parent="Main3D" instance=ExtResource( 2 )]
+
+[node name="WorldEnvironment" parent="Main3D" instance=ExtResource( 1 )]
+
+[node name="vegetables" type="Spatial" parent="Main3D"]
+
+[node name="vegetable" parent="Main3D/vegetables" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30.8741 )
