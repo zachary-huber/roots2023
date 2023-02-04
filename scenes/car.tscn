@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://materials/tires.tres" type="Material" id=1]
 [ext_resource path="res://scripts/car.gd" type="Script" id=2]
 [ext_resource path="res://textures/KenneyPrototyping/Light/texture_07.png" type="Texture" id=3]
 [ext_resource path="res://scenes/plunger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://materials/debug.tres" type="Material" id=5]
+[ext_resource path="res://scenes/Tractor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/tether.gd" type="Script" id=7]
 
 [sub_resource type="BoxShape" id=5]
 
@@ -21,15 +23,18 @@ radial_segments = 12
 
 [sub_resource type="CubeMesh" id=9]
 
+[sub_resource type="SphereShape" id=10]
+
 [node name="Player" type="VehicleBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.834, 0 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( -8.74228e-08, 0, 1, 0, 0.3, 0, -2, 0, -4.37114e-08, 0, 0, 0 )
+transform = Transform( -8.74228e-08, 0, 1, 0, 0.3, 0, -2.67781, 0, -5.85255e-08, 0, 0, -0.54222 )
 shape = SubResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
+visible = false
 mesh = SubResource( 6 )
 material/0 = SubResource( 7 )
 
@@ -58,7 +63,7 @@ transform = Transform( -2.62268e-08, -0.2, 0, 0.6, -8.74228e-09, 0, 0, 0, 0.6, 0
 mesh = SubResource( 8 )
 
 [node name="L3" type="VehicleWheel" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, -2.87879 )
 use_as_traction = true
 wheel_radius = 0.6
 suspension_stiffness = 50.0
@@ -66,11 +71,11 @@ damping_compression = 1.9
 damping_relaxation = 2.0
 
 [node name="MeshInstance" type="MeshInstance" parent="L3"]
-transform = Transform( -2.62268e-08, -0.2, 0, 0.6, -8.74228e-09, 0, 0, 0, 0.6, 0, 0, 0 )
+transform = Transform( -6.99382e-08, -0.3, 0, 1.6, -1.31134e-08, 0, 0, 0, 1.6, 0.1, 0, 0 )
 mesh = SubResource( 8 )
 
 [node name="L4" type="VehicleWheel" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0, -2.87879 )
 use_as_traction = true
 wheel_radius = 0.6
 suspension_stiffness = 50.0
@@ -78,11 +83,11 @@ damping_compression = 1.9
 damping_relaxation = 2.0
 
 [node name="MeshInstance" type="MeshInstance" parent="L4"]
-transform = Transform( -2.62268e-08, -0.2, 0, 0.6, -8.74228e-09, 0, 0, 0, 0.6, 0, 0, 0 )
+transform = Transform( -6.99382e-08, -0.3, 0, 1.6, -1.31134e-08, 0, 0, 0, 1.6, -0.1, 0, 0 )
 mesh = SubResource( 8 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, -4.37114e-08, 0.866025, 0.5, 7.57103e-08, 0.5, -0.866025, 0, 6.55646, -5.63278 )
+transform = Transform( -1, -2.26267e-08, 8.44439e-08, 0, 0.965925, 0.258819, -8.74228e-08, 0.258819, -0.965925, 0, 6.47, -9.697 )
 current = true
 
 [node name="RayCast" type="RayCast" parent="."]
@@ -92,12 +97,27 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -23.2462, -1.01612e-06, 0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2937, 0 )
 
 [node name="plungerProjectile" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.4, 0, 0, 0, 0.3, 0, 0, 0, 0.4, 0, 1.308, 0 )
+transform = Transform( 0.396003, 0.0408651, 0.0145997, 0, -0.0776457, 0.38637, 0.0564089, -0.286882, -0.102493, 1.0873, 3.75495, -0.900368 )
 
 [node name="plungerLookTarget" type="Spatial" parent="."]
-transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, 1, 1, 4.37114e-08, -4.37114e-08, -6.16763, 2.94746, 3.2511 )
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, 1, 1, 4.37114e-08, -4.37114e-08, 0.519639, 4.3189, 1.23993 )
 
 [node name="MeshInstance" type="MeshInstance" parent="plungerLookTarget"]
 transform = Transform( 0.5, 0, 0, 0, 0.707107, 0.353553, 0, -0.707107, 0.353553, 0, 0, 0 )
 material_override = ExtResource( 5 )
 mesh = SubResource( 9 )
+
+[node name="Tractor" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, -0.30791, -0.896399 )
+
+[node name="tetherAnchor" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16804, 3.7003, -1.61059 )
+
+[node name="Line2D" type="Line2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="pullArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="pullArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11487, 0 )
+shape = SubResource( 10 )

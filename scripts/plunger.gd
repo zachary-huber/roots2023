@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	if(state=="active"):
 		velocity += gravity * delta
-		look_at(transform.origin + velocity.normalized(), Vector3.DOWN)
+		look_at(transform.origin + velocity.normalized(), Vector3.UP)
 		#transform.origin += velocity * delta
 		move_and_slide(velocity, Vector3.UP)
 	pass
@@ -27,3 +27,8 @@ func behaveInactive():
 
 func isPlunger():
 	return true
+
+
+func _on_suctionTimer_timeout():
+	state = "inactive"
+	rotation = Vector3.ZERO + Vector3(74.3, 0, 0)

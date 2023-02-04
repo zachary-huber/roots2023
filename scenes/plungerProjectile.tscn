@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://models/plungerRoot.material" type="Material" id=1]
 [ext_resource path="res://models/plungerRubber.material" type="Material" id=2]
 [ext_resource path="res://scripts/plunger.gd" type="Script" id=3]
 [ext_resource path="res://materials/debug.tres" type="Material" id=4]
+[ext_resource path="res://models/plunger.glb" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape" id=5]
 radius = 0.461095
-height = 8.61482
+height = 7.70886
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "plunger_Cylinder"
@@ -38,32 +39,50 @@ surfaces/1 = {
 
 [sub_resource type="CylinderShape" id=2]
 height = 5.12386
-radius = 3.64787
+radius = 2.2472
 
 [sub_resource type="CylinderMesh" id=3]
 
+[sub_resource type="SphereMesh" id=6]
+
 [node name="plungerProjectile" type="KinematicBody"]
 transform = Transform( 0.4, 0, 0, 0, 0.3, 0, 0, 0, 0.4, 0, 0, 0 )
-collision_layer = 5
-collision_mask = 5
+collision_layer = 7
+collision_mask = 7
 script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.999775, -0.0211141, -0.00182711, -0.0208972, -0.967795, -0.250869, 0.00352861, 0.250851, -0.968019, -0.0093472, 0.838036, 2.98774 )
+transform = Transform( 0.999775, -0.0211141, -0.00182711, -0.020789, -0.960231, -0.279101, 0.0038713, 0.266701, -0.963663, -0.0093472, 1.07434, 3.64123 )
 shape = SubResource( 5 )
 
 [node name="Cylinder" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.206268, -1.27163, 0, 0.733822, 0.35744, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1.18904, 0.222803, 0, 0.0803341, 0.856069, 0, 0, 0 )
+visible = false
 mesh = SubResource( 1 )
 
 [node name="pivot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.205863, -1.30477, 0, 0.733936, 0.205863, 0, 0, 0 )
 
 [node name="PlungerBox" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.258819, -1.2879, 0, 0.724444, 0.258819, -0.0416346, 0.111179, 0.179029 )
+transform = Transform( 1, 0, 0, 0, 0.366631, -1.24049, 0, 0.697775, 0.366631, -0.0416346, 1.05837, 1.48326 )
 shape = SubResource( 2 )
 
 [node name="hitBoxDebug" type="MeshInstance" parent="PlungerBox"]
-transform = Transform( 4, 0, 0, 0, 2.5, 0, 0, 0, 4, 0, -0.882674, 0 )
+transform = Transform( 2.60872, 0, 0, 0, 1.54845, 0.154647, 0, 0.0543684, 2.2289, 0, -0.882675, 2.08616e-07 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 4 )
+
+[node name="suctionTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="plunger" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 0.42246, -1.20851, 0, 0.679786, 0.42246, 0, 0, 0 )
+
+[node name="tetherAnchor" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.60651, 5.70383 )
+
+[node name="anchorDebug" type="MeshInstance" parent="tetherAnchor"]
+material_override = ExtResource( 4 )
+mesh = SubResource( 6 )
+
+[connection signal="timeout" from="suctionTimer" to="." method="_on_suctionTimer_timeout"]

@@ -1,32 +1,38 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://sprites/bottoms/Untitled.png" type="Texture" id=1]
-[ext_resource path="res://sprites/tops/Untitled_2.png" type="Texture" id=2]
+[ext_resource path="res://sprites/bottoms/Untitled_7.png" type="Texture" id=1]
+[ext_resource path="res://sprites/tops/Untitled_3.png" type="Texture" id=2]
+[ext_resource path="res://scripts/vegetable.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 1.49647
 height = 22.3736
 
 [sub_resource type="SphereShape" id=2]
-radius = 3.08485
+radius = 1.00417
 
 [sub_resource type="SphereShape" id=3]
-radius = 10.5396
+radius = 20.8518
 
 [node name="vegetable" type="StaticBody"]
+script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.3, 0, 0, 0, -1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0, -0.0167729, 0 )
 shape = SubResource( 1 )
 
 [node name="PlungerDetector" type="Area" parent="."]
+transform = Transform( 1.12641, 0, 0, 0, 2.07748, 0, 0, 0, 1.02955, 0, 0, 0 )
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="PlungerDetector"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="PullingDistance" type="Area" parent="."]
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="PullingDistance"]
 shape = SubResource( 3 )
@@ -46,3 +52,8 @@ cast_shadow = 0
 billboard = 2
 alpha_cut = 2
 texture = ExtResource( 1 )
+
+[connection signal="area_entered" from="PlungerDetector" to="." method="_on_PlungerDetector_area_entered"]
+[connection signal="body_entered" from="PlungerDetector" to="." method="_on_PlungerDetector_body_entered"]
+[connection signal="area_exited" from="PullingDistance" to="." method="_on_PullingDistance_area_exited"]
+[connection signal="body_exited" from="PullingDistance" to="." method="_on_PullingDistance_body_exited"]

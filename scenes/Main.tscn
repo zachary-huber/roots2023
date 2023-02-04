@@ -14,6 +14,7 @@ script = ExtResource( 5 )
 [node name="Level" parent="Main3D" instance=ExtResource( 3 )]
 
 [node name="Player" parent="Main3D" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9686, 0 )
 
 [node name="WorldEnvironment" parent="Main3D" instance=ExtResource( 1 )]
 
@@ -21,3 +22,46 @@ script = ExtResource( 5 )
 
 [node name="vegetable" parent="Main3D/vegetables" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30.8741 )
+
+[node name="vegetable2" parent="Main3D/vegetables" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4765, 0, 30.8741 )
+
+[node name="vegetable3" parent="Main3D/vegetables" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.239, 0, 30.8741 )
+
+[node name="vegetable4" parent="Main3D/vegetables" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7481, 0, 49.3614 )
+
+[node name="vegetable5" parent="Main3D/vegetables" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9094, 0, 49.3614 )
+
+[node name="vegetable6" parent="Main3D/vegetables" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9094, 0, 19.5442 )
+
+[node name="vegetable7" parent="Main3D/vegetables" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.21541, 0, 19.5442 )
+
+[node name="HUD" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Controls" type="RichTextLabel" parent="HUD"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1891.0
+margin_top = 971.0
+margin_right = -1545.0
+margin_bottom = 1051.0
+text = "Move: [WASD]
+Launch Plunger: [SPACE]
+Restart: [R]
+Quit: [ESC]"
+
+[node name="VeggiesPlucked" type="RichTextLabel" parent="HUD"]
+margin_left = 14.0
+margin_top = 18.0
+margin_right = 360.0
+margin_bottom = 98.0
+text = "Uprooted: 0"

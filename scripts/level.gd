@@ -12,5 +12,6 @@ func _ready():
 
 func _on_floorArea_body_entered(body):
 	if body.has_method("isPlunger"):
-		body.velocity = Vector3.ZERO
+		#body.velocity = Vector3.ZERO
 		body.rotation = Vector3.ZERO + Vector3(74.3, 0, 0)
+		body.get_node("suctionTimer").start()

@@ -10,10 +10,12 @@ var max_torque = 500
 var velocity = Vector3(0,0,0)
 var rpm = 0
 var acceleration = Input.get_axis("back", "forward")
+var tetherPoints = []
+var tetherPoint: Vector2
 
 
 func _ready():
-	pass 
+	pass
 
 
 func _process(delta):
@@ -24,15 +26,16 @@ func _process(delta):
 	rpm = abs($L4.get_rpm())
 	$L4.engine_force = acceleration * max_torque * (1 - rpm / max_rpm)
 
-
+	
 func _input(event):
 	if event.is_action_pressed("launch"):
 		launchPlunger()
 
 
 func launchPlunger():
+	print("Launching plunger")
 	var plungerShot = createPlunger()
-	plungerShot.velocity = plungerShot.transform.basis.x * (plungerShot.launchForce) # + $L3.get_rpm() / 5 )
+	plungerShot.velocity = plungerShot.transform.basis.x * (plungerShot.launchForce + $L3.get_rpm() / 10 )
 	plungerShot.state = "active"
 	pass
 
