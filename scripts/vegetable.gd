@@ -7,13 +7,31 @@ var connectedPlunger
 var count = 0
 var isConnected
 var player
+export var special = false
+export var tops:SpriteFrames
+export var bottoms:SpriteFrames
 
+var b1 = preload("res://sprites/spriteFrames/bottomFrames1.tres")
+var b2 = preload("res://sprites/spriteFrames/bottomFrames2.tres")
+var t1 = preload("res://sprites/spriteFrames/topFrames1.tres")
+var t2 = preload("res://sprites/spriteFrames/topFrames2.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	$skin/bottom.frame = randi() % 8
-	$skin/top.frame = randi() % 5
+	
+	if ((randi() % 2) == 0):
+		tops = t1
+		bottoms = b1
+	else:
+		tops = t2
+		bottoms = b2
+	
+	$skin/bottom.frames = bottoms
+	$skin/top.frames = tops
+	
+	$skin/bottom.frame = randi() % $skin/bottom.frames.get_frame_count("default")
+	$skin/top.frame = randi() % $skin/top.frames.get_frame_count("default")
 	pass # Replace with function body.
 
 
