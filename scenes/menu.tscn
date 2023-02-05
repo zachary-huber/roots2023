@@ -5,20 +5,18 @@
 
 [sub_resource type="Theme" id=1]
 
-[node name="main" type="Spatial"]
-
-[node name="main" type="Control" parent="."]
+[node name="main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
-[node name="TextureRect" type="TextureRect" parent="main"]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="main"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -27,7 +25,7 @@ margin_top = 128.0
 margin_right = 426.0
 margin_bottom = -766.0
 
-[node name="plungeButton" type="Button" parent="main/VBoxContainer"]
+[node name="plungeButton" type="Button" parent="VBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0.121569 )
 margin_right = 606.0
 margin_bottom = 186.0
@@ -35,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="main"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
@@ -44,7 +42,7 @@ margin_top = 475.0
 margin_right = 421.0
 margin_bottom = -305.0
 
-[node name="dontButton" type="Button" parent="main/VBoxContainer2"]
+[node name="dontButton" type="Button" parent="VBoxContainer2"]
 self_modulate = Color( 1, 1, 1, 0.160784 )
 margin_right = 600.0
 margin_bottom = 300.0
@@ -52,5 +50,5 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource( 1 )
 
-[connection signal="pressed" from="main/VBoxContainer/plungeButton" to="main" method="_on_plungeButton_pressed"]
-[connection signal="pressed" from="main/VBoxContainer2/dontButton" to="main" method="_on_dontButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/plungeButton" to="." method="_on_plungeButton_pressed"]
+[connection signal="pressed" from="VBoxContainer2/dontButton" to="." method="_on_dontButton_pressed"]

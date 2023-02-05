@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://materials/tires.tres" type="Material" id=1]
 [ext_resource path="res://scripts/car.gd" type="Script" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://addons/line_3d/Line3D.gd" type="Script" id=8]
 [ext_resource path="res://addons/line_3d/MeshInstance.gd" type="Script" id=9]
 [ext_resource path="res://sounds/diesel-tractor-2-55064.mp3" type="AudioStream" id=10]
-[ext_resource path="res://sounds/launcher.wav" type="AudioStream" id=11]
 
 [sub_resource type="BoxShape" id=5]
 
@@ -116,7 +115,6 @@ mesh = SubResource( 8 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, -2.26267e-08, 8.44439e-08, 0, 0.965926, 0.258819, -8.74228e-08, 0.258819, -0.965926, 0.0601993, 6.38393, -9.62332 )
 current = true
-far = 150.0
 
 [node name="RayCast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -23.2462, -1.01612e-06, 0, 0.32177, 2.21052 )
@@ -164,13 +162,9 @@ script = ExtResource( 9 )
 
 [node name="engineSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 10 )
-unit_db = 10.0
+unit_db = 25.0
 autoplay = true
 
 [node name="backupSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 7 )
-unit_db = 5.0
-
-[node name="launcherSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 11 )
-unit_db = 15.0
+unit_db = 10.0
