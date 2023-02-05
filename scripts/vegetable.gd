@@ -11,6 +11,9 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
+	$skin/bottom.frame = randi() % 8
+	$skin/top.frame = randi() % 5
 	pass # Replace with function body.
 
 
