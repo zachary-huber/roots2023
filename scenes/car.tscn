@@ -192,7 +192,7 @@ script = ExtResource( 9 )
 
 [node name="engineSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 10 )
-unit_db = 3.0
+unit_db = 15.0
 autoplay = true
 bus = "Bus2"
 
@@ -214,7 +214,7 @@ draw_pass_1 = SubResource( 19 )
 
 [node name="music" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 13 )
-unit_db = 5.0
+unit_db = 10.0
 autoplay = true
 bus = "Bus2"
 

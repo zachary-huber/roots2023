@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://materials/floor-main.tres" type="Material" id=1]
 [ext_resource path="res://scripts/level.gd" type="Script" id=2]
@@ -11,12 +11,16 @@
 [ext_resource path="res://scenes/Cow.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/Silo.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Rock.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sounds/dragon-death-102428.mp3" type="AudioStream" id=12]
 
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="CubeMesh" id=2]
 
 [sub_resource type="BoxShape" id=3]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 2.05133, 1.91866, 0.749705 )
 
 [node name="World" type="Spatial"]
 script = ExtResource( 2 )
@@ -340,6 +344,17 @@ transform = Transform( 0.667191, 0, 2.88105, 0, 1.63006, 0, -0.0749307, 0, 0.960
 [node name="Barn" parent="." instance=ExtResource( 6 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 121.221, 0, 76.2 )
 
+[node name="jumpscare" type="Area" parent="Barn"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Barn/jumpscare"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.95682, 2.17375, -16.2966 )
+shape = SubResource( 4 )
+
+[node name="scarySound" type="AudioStreamPlayer3D" parent="Barn/jumpscare"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -60.6105, 0, -38.1 )
+stream = ExtResource( 12 )
+unit_db = 50.0
+
 [node name="Bale" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.304, -0.859108, 42.1772 )
 
@@ -410,3 +425,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6222, 0, 27.5736 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.201356, 0, 50.5268 )
 
 [connection signal="body_entered" from="Floor/floorArea" to="." method="_on_floorArea_body_entered"]
+[connection signal="body_entered" from="Barn/jumpscare" to="." method="_on_jumpscare_body_entered"]

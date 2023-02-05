@@ -17,3 +17,7 @@ func _on_floorArea_body_entered(body):
 		body.get_node("suctionTimer").start()
 		body.get_node("PlungerSound").play()
 		
+
+
+func _on_jumpscare_body_entered(body):
+	$Barn/jumpscare/scarySound.play()
