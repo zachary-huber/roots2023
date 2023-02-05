@@ -7,8 +7,8 @@
 [ext_resource path="res://materials/debug.tres" type="Material" id=5]
 [ext_resource path="res://scenes/Tractor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sounds/truck-backup-beeps-75624.mp3" type="AudioStream" id=7]
-[ext_resource path="res://addons/line_3d/Line3D.gd" type="Script" id=8]
-[ext_resource path="res://addons/line_3d/MeshInstance.gd" type="Script" id=9]
+[ext_resource path="res://models/addons/line_3d/Line3D.gd" type="Script" id=8]
+[ext_resource path="res://models/addons/line_3d/MeshInstance.gd" type="Script" id=9]
 [ext_resource path="res://sounds/diesel-tractor-2-55064.mp3" type="AudioStream" id=10]
 [ext_resource path="res://sounds/launcher.wav" type="AudioStream" id=11]
 [ext_resource path="res://textures/smoke_07.png" type="Texture" id=12]
@@ -143,7 +143,7 @@ mesh = SubResource( 8 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, -2.26267e-08, 8.44439e-08, 0, 0.965926, 0.258819, -8.74228e-08, 0.258819, -0.965926, 0.0601993, 6.38393, -9.62332 )
 current = true
-far = 150.0
+far = 302.3
 
 [node name="RayCast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -23.2462, -1.01612e-06, 0, 0.32177, 2.21052 )
