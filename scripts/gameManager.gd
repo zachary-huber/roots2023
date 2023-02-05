@@ -14,7 +14,7 @@ func _input(event):
 
 
 func _process(delta):
-	$HUD/stopwatch.text =  ".\nSTOPWATCH: " + String(stepify(Time.get_unix_time_from_system() - startTime, 1))
+	$HUD/stopwatch.text =  ".\nTime: " + String(stepify(Time.get_unix_time_from_system() - startTime, 1))
 
 func quitGame():
 	print("Quitting game...")

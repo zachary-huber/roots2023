@@ -34,6 +34,9 @@ func connectPlunger(body):
 	body.state = "inactive"
 	body.scale = Vector3(.8,.8,.8)
 	
+	# play connected particles
+	$Particles2.restart()
+	
 	# emit signal that contact was made
 	player = body.get_parent().get_parent().get_node("Player")
 	player.isConnected = true
@@ -93,5 +96,5 @@ func uproot():
 
 
 func _on_PullingDistance_area_exited(area):
-	if player.isConnected:
+	if player.isConnected and !isUprooted:
 		uproot()
