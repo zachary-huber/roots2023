@@ -30,7 +30,7 @@ func _process(delta):
 	rpm = abs($L4.get_rpm())
 	$L4.engine_force = acceleration * max_torque * (1 - rpm / max_rpm)
 	
-	if($L3.get_rpm()) > 100:
+	if($L3.get_rpm()) > 130:
 		$backupSound.playing = true
 
 	if(isConnected):

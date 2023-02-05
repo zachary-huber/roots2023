@@ -5,6 +5,8 @@ var isTethered = false
 var isUprooted = false
 var connectedPlunger
 var count = 0
+var isConnected
+var player
 
 
 # Called when the node enters the scene tree for the first time.
@@ -33,7 +35,8 @@ func connectPlunger(body):
 	body.scale = Vector3(.8,.8,.8)
 	
 	# emit signal that contact was made
-	
+	player = body.get_parent().get_parent().get_node("Player")
+	player.isConnected = true
 	
 	# activate the pulling detector
 	$PullingDistance.monitorable = true
@@ -41,18 +44,21 @@ func connectPlunger(body):
 	
 	# apply particle affect
 	
-	# play suction sound effect
-	
 	return body
 
 
 
 func uproot():
 	if(!isUprooted):
+		
+		if !player.isConnected:
+			return
+		
 		print("uprooting vegetable!")
 		isUprooted = true
 		$PullingDistance.set_deferred("monitorable", false)
 		$PullingDistance.set_deferred("monitoring", false)
+		
 		
 		# hide plunger
 		connectedPlunger.visible = false
@@ -60,7 +66,6 @@ func uproot():
 		$AnimationPlayer.play("uproot")
 		$Particles.emitting = true
 		
-		var player = connectedPlunger.get_parent().get_parent().get_node("Player")
 		player.isConnected = false
 		
 		# make the tether invisible
@@ -82,11 +87,11 @@ func uproot():
 		# add to uprooted score
 		player.numUprooted += 1
 		print (player.numUprooted)
-		
 		player.get_parent().get_parent().get_node("HUD").get_node("VeggiesPlucked").text = "Uprooted: " + str(player.numUprooted)
 
 		# make vegetable a pick-up entity
 
 
 func _on_PullingDistance_area_exited(area):
-	uproot()
+	if player.isConnected:
+		uproot()

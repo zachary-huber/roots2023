@@ -163,12 +163,12 @@ script = ExtResource( 9 )
 
 [node name="engineSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 10 )
-unit_db = 15.0
+unit_db = 10.0
 autoplay = true
 
 [node name="backupSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 7 )
-unit_db = 7.0
+unit_db = 3.0
 
 [node name="launcherSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 11 )
