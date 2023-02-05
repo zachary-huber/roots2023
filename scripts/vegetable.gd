@@ -7,7 +7,6 @@ var connectedPlunger
 var count = 0
 var isConnected
 var player
-export var special = false
 export var tops:SpriteFrames
 export var bottoms:SpriteFrames
 
@@ -20,7 +19,7 @@ var t2 = preload("res://sprites/spriteFrames/topFrames2.tres")
 func _ready():
 	randomize()
 	
-	if ((randi() % 2) == 0):
+	if ((randi() % 7) != 0):
 		tops = t1
 		bottoms = b1
 	else:
@@ -82,6 +81,9 @@ func uproot():
 		isUprooted = true
 		$PullingDistance.set_deferred("monitorable", false)
 		$PullingDistance.set_deferred("monitoring", false)
+		
+		$PlungerDetector.set_deferred("monitorable", false)
+		$PlungerDetector.set_deferred("monitoring", false)
 		
 		
 		# hide plunger

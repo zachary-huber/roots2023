@@ -4,6 +4,7 @@ var startTime
 
 func _ready():
 	startTime = Time.get_unix_time_from_system()
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 
 func _input(event):

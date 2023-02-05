@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/lighting.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/car.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/level.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/vegetable.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/gameManager.gd" type="Script" id=5]
+[ext_resource path="res://sprites/spriteFrames/topFrames1.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://fonts/mainFont.tres" type="DynamicFont" id=7]
 
 [node name="Main" type="Node"]
@@ -23,6 +24,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9686, 0 )
 
 [node name="vegetable" parent="Main3D/vegetables" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30.8741 )
+tops = ExtResource( 6 )
 
 [node name="vegetable2" parent="Main3D/vegetables" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4765, 0, 30.8741 )

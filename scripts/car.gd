@@ -19,6 +19,7 @@ var points
 
 func _ready():
 	$tether.set_as_toplevel(true)
+	$smoker.local_coords = false
 	pass
 
 
