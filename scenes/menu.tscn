@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://textures/Untitled_13-2.png" type="Texture" id=1]
 [ext_resource path="res://scripts/menu.gd" type="Script" id=2]
+[ext_resource path="res://fonts/mainFont.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Theme" id=1]
 
@@ -49,6 +50,24 @@ margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 1614.0
+margin_top = 972.0
+margin_right = 1904.0
+margin_bottom = 1063.0
+custom_fonts/normal_font = ExtResource( 3 )
+text = "Music: Incompetech"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 16.0
+margin_top = 943.0
+margin_right = 413.0
+margin_bottom = 1183.0
+custom_fonts/normal_font = ExtResource( 3 )
+text = "Zachary Huber
+Xander Boutin
+Ashley Westermann"
 
 [connection signal="pressed" from="VBoxContainer/plungeButton" to="." method="_on_plungeButton_pressed"]
 [connection signal="pressed" from="VBoxContainer2/dontButton" to="." method="_on_dontButton_pressed"]
