@@ -10,6 +10,8 @@ var player
 export var tops:SpriteFrames
 export var bottoms:SpriteFrames
 
+var startTime
+
 var b1 = preload("res://sprites/spriteFrames/bottomFrames1.tres")
 var b2 = preload("res://sprites/spriteFrames/bottomFrames2.tres")
 var t1 = preload("res://sprites/spriteFrames/topFrames1.tres")
@@ -17,6 +19,7 @@ var t2 = preload("res://sprites/spriteFrames/topFrames2.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	startTime = Time.get_unix_time_from_system()
 	randomize()
 	
 	if ((randi() % 7) != 0):
@@ -111,10 +114,26 @@ func uproot():
 		
 		
 		# add to uprooted score
-		player.numUprooted += 1
-		print (player.numUprooted)
-		player.get_parent().get_parent().get_node("HUD").get_node("VeggiesPlucked").text = "Uprooted: " + str(player.numUprooted)
-
+		if !player.isEnd: 
+			player.numUprooted += 1
+			print (player.numUprooted)
+			player.get_parent().get_parent().get_node("HUD").get_node("VeggiesPlucked").text = "Uprooted: " + str(player.numUprooted)
+		
+		
+		# check if vegetable > 30
+		if(player.numUprooted == 20) and player.isEnd == false:
+			player.isEnd = true
+			# open popup for the end?
+			player.get_node("endScreen").visible = true
+			
+			# print end message
+			player.get_node("endScreen").get_node("endMessage").text = "The end!\n\n"+ "You uprooted 20 plants!\n" + "Time: " + String(stepify(Time.get_unix_time_from_system() - startTime, 1))
+			
+			# hide other UI elements
+			var hud = player.get_parent().get_parent().get_node("HUD")
+			hud.get_node("stopwatch").visible = false
+			hud.get_node("VeggiesPlucked").visible = false
+			
 		# make vegetable a pick-up entity
 
 

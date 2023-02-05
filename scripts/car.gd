@@ -16,6 +16,8 @@ var canLaunchPlunger = true
 
 var numUprooted = 0
 var points 
+var isEnd = false
+
 
 func _ready():
 	$tether.set_as_toplevel(true)

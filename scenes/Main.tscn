@@ -167,3 +167,11 @@ custom_fonts/normal_font = ExtResource( 7 )
 text = "STOPWATCH
 -
 Time: 00:00:00s"
+
+[node name="Goal" type="RichTextLabel" parent="HUD"]
+margin_left = 1627.0
+margin_top = 20.0
+margin_right = 1973.0
+margin_bottom = 100.0
+custom_fonts/normal_font = ExtResource( 7 )
+text = "Goal: 20 roots"
