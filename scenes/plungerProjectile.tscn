@@ -69,6 +69,7 @@ shape = SubResource( 2 )
 
 [node name="hitBoxDebug" type="MeshInstance" parent="PlungerBox"]
 transform = Transform( 2.60872, 0, 0, 0, 1.54845, 0.154647, 0, 0.0543684, 2.2289, 0, -0.882675, 2.08616e-07 )
+visible = false
 mesh = SubResource( 3 )
 material/0 = ExtResource( 4 )
 
@@ -82,6 +83,7 @@ transform = Transform( 1, 0, 0, 0, 0.42246, -1.20851, 0, 0.679786, 0.42246, 0, 0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.60651, 5.70383 )
 
 [node name="anchorDebug" type="MeshInstance" parent="tetherAnchor"]
+visible = false
 material_override = ExtResource( 4 )
 mesh = SubResource( 6 )
 
