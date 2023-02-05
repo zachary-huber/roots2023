@@ -53,11 +53,12 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -1891.0
 margin_top = 844.0
-margin_right = -1545.0
+margin_right = -1404.0
 margin_bottom = 1051.0
 custom_fonts/normal_font = ExtResource( 7 )
 text = "Move: [WASD]
-Launch Plunger: [SPACE]
+Plunger: [SPACE]
+----------------------
 Restart: [R]
 Quit: [ESC]"
 
