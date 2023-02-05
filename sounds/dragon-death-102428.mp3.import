@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dragon-death-102428.mp3-40b69e28a58c2c0a0d28abd69589f145.mp3str"
+
+[deps]
+
+source_file="res://sounds/dragon-death-102428.mp3"
+dest_files=[ "res://.import/dragon-death-102428.mp3-40b69e28a58c2c0a0d28abd69589f145.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

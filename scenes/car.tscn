@@ -101,6 +101,7 @@ transform = Transform( 0.396003, 0.0408651, 0.0145997, 0, -0.0776457, 0.38637, 0
 
 [node name="plungerLookTarget" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, 1, 1, 4.37114e-08, -4.37114e-08, 0.519639, 4.3189, 1.23993 )
+visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="plungerLookTarget"]
 transform = Transform( 0.5, 0, 0, 0, 0.707107, 0.353553, 0, -0.707107, 0.353553, 0, 0, 0 )

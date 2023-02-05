@@ -18,7 +18,7 @@ func _input(event):
 
 func quitGame():
 	print("Quitting game...")
-	get_tree().quit()
+	get_tree().change_scene("res://scenes/menu.tscn")
 	
 func restartGame():
 	print("Reloading current scene...")

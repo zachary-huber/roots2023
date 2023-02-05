@@ -26,7 +26,8 @@ func _process(delta):
 	rpm = abs($L4.get_rpm())
 	$L4.engine_force = acceleration * max_torque * (1 - rpm / max_rpm)
 
-	
+
+
 func _input(event):
 	if event.is_action_pressed("launch"):
 		launchPlunger()
