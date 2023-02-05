@@ -43,6 +43,7 @@ func _process(delta):
 		point1.x -= 0.5
 		point2.y -= 7
 		point2.x -= 1
+		point2.z += 1
 		points = [point1, point2]
 		$tether.set_points(points)
 		pass
