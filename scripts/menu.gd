@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_plungeButton_pressed():
-	get_tree().change_scene("res://scenes/Main.tscn")
+	var _newscene = get_tree().change_scene("res://scenes/Main.tscn")
 
 
 func _on_dontButton_pressed():

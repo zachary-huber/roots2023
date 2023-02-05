@@ -14,7 +14,7 @@ func _process(delta):
 		velocity += gravity * delta
 		look_at(transform.origin + velocity.normalized(), Vector3.UP)
 		#transform.origin += velocity * delta
-		move_and_slide(velocity, Vector3.UP)
+		var _garbage = move_and_slide(velocity, Vector3.UP)
 	pass
 	
 

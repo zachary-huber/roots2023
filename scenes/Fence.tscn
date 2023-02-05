@@ -29,5 +29,5 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -0.196468, 1.05846, 0.0929585 )
+transform = Transform( -4.37114e-09, 0, 0.066, 0, -0.014, 0, -0.1, 0, -2.88495e-09, -0.196468, 0.805383, -0.170394 )
 shape = SubResource( 2 )

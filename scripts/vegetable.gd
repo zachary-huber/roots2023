@@ -4,6 +4,8 @@ extends StaticBody
 var isTethered = false
 var isUprooted = false
 var connectedPlunger
+var counter = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +13,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if(isTethered):
 		pass
 
@@ -23,11 +25,15 @@ func _on_PlungerDetector_body_entered(body):
 
 func connectPlunger(body):
 	print("connecting plunger to vegetable")
-	#body.velocity = Vector3.ZERO
+	
+	# move plunger into position
 	body.translation = translation
 	body.translation.y += 1
 	body.state = "inactive"
 	body.scale = Vector3(.8,.8,.8)
+	
+	# emit signal that contact was made
+	
 	
 	# activate the pulling detector
 	$PullingDistance.monitorable = true
@@ -45,29 +51,41 @@ func uproot():
 	if(!isUprooted):
 		print("uprooting vegetable!")
 		isUprooted = true
-		$PullingDistance.monitorable = false
-		$PullingDistance.monitoring = false
+		$PullingDistance.set_deferred("monitorable", false)
+		$PullingDistance.set_deferred("monitoring", false)
 		
+		# hide plunger
 		connectedPlunger.visible = false
+
+		$AnimationPlayer.play("uproot")
+		$Particles.emitting = true
 		
-		# hide self
-		#visible = false
+		var player = connectedPlunger.get_parent().get_parent().get_node("Player")
+		player.isConnected = false
 		
-		# show roots
-		translation.y += 5
+		# make the tether invisible
+		player.get_node("tether").visible = false
 		
-		# spawn vegetable to come out of the ground
-		var newVegetable # something.instance()
+		# make the cannon plunger visible
+		player.get_node("plungerProjectile").visible = true
+		
+		# enable launchPlunger
+		player.canLaunchPlunger = true
+		
+		# delete plunger
+		connectedPlunger.queue_free()
 		
 		# play a sound
+		$vegetableSounds.play()
 		
-		# show particles
 		
 		# add to uprooted score
-		
+		player.get_parent().get_parent().get_node("HUD").get_node("VeggiesPlucked").text = "Uprooted: " + str(counter)
 		# make vegetable a pick-up entity
-		pass
 
 
 func _on_PullingDistance_area_exited(area):
+	if !isUprooted:
+		counter += 1
+		print(counter)
 	uproot()

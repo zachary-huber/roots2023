@@ -1,9 +1,9 @@
 extends Node
 
-
+var startTime
 
 func _ready():
-	pass # Replace with function body.
+	startTime = Time.get_unix_time_from_system()
 
 
 func _input(event):
@@ -13,13 +13,13 @@ func _input(event):
 		restartGame()
 
 
-#func _process(delta):
-#	pass
+func _process(delta):
+	$HUD/stopwatch.text =  ".\nSTOPWATCH: " + String(stepify(Time.get_unix_time_from_system() - startTime, 1))
 
 func quitGame():
 	print("Quitting game...")
-	get_tree().change_scene("res://scenes/menu.tscn")
+	var _newScene = get_tree().change_scene("res://scenes/menu.tscn")
 	
 func restartGame():
 	print("Reloading current scene...")
-	get_tree().reload_current_scene()
+	var _quit = get_tree().reload_current_scene()
