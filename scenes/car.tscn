@@ -116,6 +116,7 @@ mesh = SubResource( 8 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, -2.26267e-08, 8.44439e-08, 0, 0.965926, 0.258819, -8.74228e-08, 0.258819, -0.965926, 0.0601993, 6.38393, -9.62332 )
 current = true
+far = 150.0
 
 [node name="RayCast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -23.2462, -1.01612e-06, 0, 0.32177, 2.21052 )
