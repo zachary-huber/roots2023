@@ -64,7 +64,7 @@ func launchPlunger():
 	canLaunchPlunger = false
 	
 	$tether.visible = true
-	
+	$launcherSound.play()
 	plungerShot.velocity = plungerShot.transform.basis.x * (plungerShot.launchForce + $L3.get_rpm() / 10 )
 	plungerShot.state = "active"
 	pass
