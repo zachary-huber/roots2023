@@ -4,7 +4,7 @@ extends StaticBody
 var isTethered = false
 var isUprooted = false
 var connectedPlunger
-var counter = 0
+var count = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -80,12 +80,13 @@ func uproot():
 		
 		
 		# add to uprooted score
-		player.get_parent().get_parent().get_node("HUD").get_node("VeggiesPlucked").text = "Uprooted: " + str(counter)
+		player.numUprooted += 1
+		print (player.numUprooted)
+		
+		player.get_parent().get_parent().get_node("HUD").get_node("VeggiesPlucked").text = "Uprooted: " + str(player.numUprooted)
+
 		# make vegetable a pick-up entity
 
 
 func _on_PullingDistance_area_exited(area):
-	if !isUprooted:
-		counter += 1
-		print(counter)
 	uproot()

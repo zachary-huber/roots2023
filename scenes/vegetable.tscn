@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://sprites/bottoms/Untitled_7.png" type="Texture" id=1]
-[ext_resource path="res://sprites/tops/Untitled_3.png" type="Texture" id=2]
+[ext_resource path="res://sprites/bottoms/Untitled_11.png" type="Texture" id=1]
+[ext_resource path="res://sprites/tops/Untitled_4.png" type="Texture" id=2]
 [ext_resource path="res://scripts/vegetable.gd" type="Script" id=3]
 [ext_resource path="res://sounds/pop-1-35897.mp3" type="AudioStream" id=4]
 
@@ -63,6 +63,7 @@ monitorable = false
 shape = SubResource( 3 )
 
 [node name="skin" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0739825, 0 )
 
 [node name="skinHead" type="Sprite3D" parent="skin"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 3.2, 0 )

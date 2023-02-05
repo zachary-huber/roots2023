@@ -14,6 +14,7 @@ var currentPlunger
 var isConnected = false
 var canLaunchPlunger = true
 
+var numUprooted = 0
 var points 
 
 func _ready():
