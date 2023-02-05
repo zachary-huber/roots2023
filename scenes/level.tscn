@@ -31,4 +31,6 @@ transform = Transform( 300, 0, 0, 0, 1, 0, 0, 0, 300, 0, 0, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="Floor/floorArea"]
 shape = SubResource( 3 )
 
+[node name="FENCES" type="Spatial" parent="."]
+
 [connection signal="body_entered" from="Floor/floorArea" to="." method="_on_floorArea_body_entered"]
